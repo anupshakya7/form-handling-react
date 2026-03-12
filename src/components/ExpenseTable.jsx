@@ -1,13 +1,17 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 const ExpenseTable = ({ expenses }) => {
+  const [filterCategory, setFilterCategory] = useState('');
+  const filterExpenses = expenses.filter((item) => item.category.toLowerCase().includes(filterCategory.toLowerCase()));
+  const totalAmount = filterExpenses.reduce((sum, item) =>  sum + item.amount, 0);
+
   return (
     <table className='expense-table'>
       <thead>
         <tr>
           <th>Title</th>
           <th>
-            <select>
+            <select name='filterCategory' value={filterCategory} onChange={(e) => setFilterCategory(e.target.value)}>
               <option value=''>All</option>
               <option value='grocery'>Grocery</option>
               <option value='clothes'>Clothes</option>
@@ -42,7 +46,7 @@ const ExpenseTable = ({ expenses }) => {
         </tr>
       </thead>
       <tbody>
-        {expenses.map(({id, title, category, amount}) => (
+        {filterExpenses.map(({id, title, category, amount}) => (
           <tr key={id}>
             <td>{title}</td>
             <td>{category}</td>
@@ -52,7 +56,7 @@ const ExpenseTable = ({ expenses }) => {
         <tr>
           <th>Total</th>
           <th></th>
-          <th>₹8100</th>
+          <th>₹{totalAmount}</th>
         </tr>
       </tbody>
     </table>
