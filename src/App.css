@@ -127,3 +127,7 @@ main {
         flex-direction: column;
     }
 }
+
+.error{
+    color: #a60808;
+}
