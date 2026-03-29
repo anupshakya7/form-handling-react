@@ -26,6 +26,7 @@ main {
 .expense-table {
     width: 100%;
     border-collapse: collapse;
+    align-self: flex-start;
 }
 
 .expense-table select {
@@ -99,10 +100,10 @@ main {
 }
 
 .context-menu {
-    background-color: white;
+    background-color: #000;
     border: 1px solid;
     position: absolute;
-    display: none;
+    display: block;
     border-radius: 4px;
     overflow: hidden;
     box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
@@ -115,7 +116,7 @@ main {
 }
 
 .context-menu div:hover {
-    background-color: #ddd;
+    background-color: #363434;
 }
 
 @media (max-width: 900px) {
