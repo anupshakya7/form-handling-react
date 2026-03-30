@@ -132,3 +132,7 @@ main {
 .error{
     color: #a60808;
 }
+
+.clear-sort{
+    cursor: pointer;
+}
